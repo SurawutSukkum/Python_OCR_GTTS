@@ -3,28 +3,24 @@ from gtts import gTTS
 import time 
 import playsound
 import cv2
-import pytesseract
-# Specify the path to the Tesseract executable (Windows only)
-pytesseract.pytesseract.tesseract_cmd = r'C:\Users\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
-
-# Read the image
-image = cv2.imread('D://OEE.png')
-
-# Convert to grayscale for better OCR results
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-# Preprocess the image (optional)
-# Apply thresholding
-_, thresholded_image = cv2.threshold(gray_image, 150, 255, cv2.THRESH_BINARY)
-
-# Perform OCR on the image
-text = pytesseract.image_to_string(thresholded_image, lang='eng')
 
 # Print the recognized text
-print("Extracted Text:")
-print(text)
+text = "เซนเซอร์วัดแรงดันลมผิดปกติ สาเหตุ แรงดันลมตกหรือแรงดันเกินกว่าที่กำหนดไว้ในมาตรฐาน ข้อปฏิบัติ 1. ตรวจสอบวาล์วลม ว่าเปิดหรือไม่ 2. ตรวจสอบเกจวัดแรงดันลม ว่าเกินหรือต่ำกว่ามาตรฐานหรือไม่"
 
-tts = gTTS(text=str(text), lang='en')
+text ="ประกอบชิ้นงานไม่ครบ สาเหตุ ไม่ได้ประกอบชิ้นงานที่กำหนด ข้อปฏิบัติ ตรวจสอบชิ้นงานที่กำหนด ว่ามีการประกอบที่สมบูรณ์หรือไม่"
+
+text ="ขันสกรูผิดพลาด สาเหตุ  1.วางสกรูไม่ตรง หรือ 2.สกรูเกลียวหลวม  หรือ 3.ชิ้นงานมีปัญหา ข้อปฏิบัติ  1.ตรวจสอบการวางสกรู 2.ตรวจสอบการเกลียวสกรู 3.ตรวจสอบชิ้นงาน"        
+
+text = " ประกอบชิ้นงานถูกข้ามกระบวนการ สาเหตุ ชิ้นงานไม่ได้อยู่ในกระบวนการนี้ ข้อปฏิบัติ 1.ตรวจสอบชิ้นงานที่กำหนด 2.ว่าอยู่ในกระบวนการใด ในปัจจุบัน"
+
+text =  " ระบบตรวจสอบพบความผิดปกติ สาเหตุ 1.ไม่มีการเชื่อมต่อกับ PLC 2. ไม่ได้เปิดสวิตซ์ Power ข้อปฏิบัติ  1. ตรวจสอบสายไฟ การเชื่อมต่อกับ PLC 2. ตรวจสอบ สายไฟแหล่งจ่ายและสวิตซ์ Power"
+
+text =  " ระบบตรวจสอบพบความผิดปกติ สาเหตุ 1.ไม่มีการเชื่อมต่อกับ PLC 2. ไม่ได้เปิดสวิตซ์ Power ข้อปฏิบัติ  1. ตรวจสอบสายไฟ การเชื่อมต่อกับ PLC 2. ตรวจสอบ สายไฟแหล่งจ่ายและสวิตซ์ Power"
+
+text =  "สวิตซ์ฉุกเฉิน หรือเซนเซอร์ความปลอดภัยกำลังทำงานอยู่ โปรดตรวจสอบความปลอดภัยในการทำงานของท่าน   สาเหตุอาจเกิดจาก เซนเซอร์ตรวจพบวัตถุหรือร่างกาย หรือมีการกดสวิตซ์ฉุกเฉิน หรือเปิดประตูเครื่องจักรในระหว่างที่ทำงาน ระบบจะส่งสัญญานไปหยุดการทำงานของเครื่องจักรทันที ข้อปฏิบัติ 1.ตรวจสอบวัตถุหรือร่างกาย ว่าเข้าไปในเครื่องจักรหรือไม่ 2.ชิ้นงานวางในตำแหน่งที่ถูกต้องหรือไม่ 3.ตรวจสอบสวิตซ์ฉุกเฉิน ว่ามีการกดหรือไม่ 4.หรือมีการเปิดประตูขณะเครื่องจักรกำลังทำงาน"
+
+
+tts = gTTS(text=str(text), lang='th')
 tts.save("sound.mp3")
-time.sleep(3)
+time.sleep(5)
 playsound.playsound("sound.mp3", True)
