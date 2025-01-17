@@ -1,4 +1,5 @@
-#pip install requirements.txt
+#pip install -r requirements.txt
 pytesseract
 gtts
 opencv-python
+playsound
